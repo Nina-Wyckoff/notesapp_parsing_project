@@ -1,4 +1,4 @@
-package com.ninawyckoff.notesapp;
+package notesapp_parsing_project;
 
 
 public class App 
