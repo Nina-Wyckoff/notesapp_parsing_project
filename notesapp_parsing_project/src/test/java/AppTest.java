@@ -1,4 +1,4 @@
-package com.ninawyckoff.notesapp;
+package notesapp;
 
 import static org.junit.Assert.assertTrue;
 
