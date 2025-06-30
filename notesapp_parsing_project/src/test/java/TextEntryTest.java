@@ -9,12 +9,21 @@ public class TextEntryTest {
 
     @Test
     void testTextEntryCreationTagged(){
+        String content = "This is content";
+        String tag = "This is a tag";
+        TextEntry entry = new TextEntry(content,tag);
 
+        assertEquals(content, entry.getContent(),"Content matches input content");
+        assertEquals(tag, entry.getTag(), "Tag matches input tag");
     }
 
     @Test
     void testTextEntryCreationUntagged(){
+        String content = "This is content";
+        TextEntry entry = new TextEntry(content);
 
+        assertEquals(content, entry.getContent(),"Content matches input content");
+        assertEquals(null, entry.getTag(),"Tag matches null value");
     }
 
     @Test
@@ -34,6 +43,6 @@ public class TextEntryTest {
 
     @Test
     void testToString(){
-        
+
     }
 }
