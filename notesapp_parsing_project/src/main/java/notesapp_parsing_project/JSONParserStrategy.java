@@ -2,6 +2,7 @@ package notesapp_parsing_project;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 public class JSONParserStrategy implements ParserStrategy{
@@ -13,7 +14,8 @@ public class JSONParserStrategy implements ParserStrategy{
     }
 
     @Override
-    public parse(String filePath) throws IOException{
-
+    public ArrayList<TextEntry> parse(String filePath) throws IOException{
+        ArrayList<TextEntry> filler = new ArrayList<>();
+        return filler;
     }
 }

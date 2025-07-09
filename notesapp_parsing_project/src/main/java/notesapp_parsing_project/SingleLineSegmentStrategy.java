@@ -12,7 +12,7 @@ import notesapp_parsing_project.SegmentStrategy;
 
 public class SingleLineSegmentStrategy implements SegmentStrategy{
 
-    public List<String> performSegmentation(BufferedReader reader) throws IOException{        
+    public ArrayList<String> performSegmentation(BufferedReader reader) throws IOException{        
         //make a loop reading lines
         List<String> fileSegments = new ArrayList<>();
         String nextLine = reader.readLine();

@@ -20,7 +20,7 @@ public class TextEntry{
 
     public String getTag() {
         if (this.tag == null){
-            return null
+            return null;
         }
         return this.tag;
     }
