@@ -7,6 +7,7 @@ import notesapp_parsing_project.SegmentStrategy;
 public class UnspacedSegmentStrategy implements SegmentStrategy{
 
     public ArrayList<String> performSegmentation(BufferedReader reader){
-        
+        ArrayList<String> filler = new ArrayList<>();
+        return filler;
     }
 }

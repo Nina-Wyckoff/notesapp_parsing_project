@@ -24,11 +24,7 @@ public class MDParserStrategy implements ParserStrategy {
 
 
         BufferedReader reader = Files.newBufferedReader(Paths.get(filePath));
-        try {
-            List<String> fileSegments = this.segmentStrategy.performSegmentation(reader);
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
+        List<String> fileSegments = this.segmentStrategy.performSegmentation(reader);
         reader.close();
 
         ArrayList<TextEntry> textEntries = new ArrayList<>();

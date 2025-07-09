@@ -12,23 +12,28 @@ import notesapp_parsing_project.SegmentStrategy;
 
 public class SingleLineSegmentStrategy implements SegmentStrategy{
 
-    public ArrayList<String> performSegmentation(BufferedReader reader) throws IOException{        
+    public ArrayList<String> performSegmentation(BufferedReader reader) {        
         //make a loop reading lines
-        List<String> fileSegments = new ArrayList<>();
-        String nextLine = reader.readLine();
-        
-        while (nextLine != null) {
-            //unless line is blank, add to array list
+        try {
+            ArrayList<String> fileSegments = new ArrayList<>();
+            String nextLine = reader.readLine();
             
-            String strippedLine = nextLine.strip();
-            
-            if (!strippedLine.contentEquals("")){
-                fileSegments.add(strippedLine);
+            while (nextLine != null) {
+                //unless line is blank, add to array list
+                
+                String strippedLine = nextLine.strip();
+                
+                if (!strippedLine.contentEquals("")){
+                    fileSegments.add(strippedLine);
+                }
+                
+                nextLine = reader.readLine();
             }
-            
-            nextLine = reader.readLine();
+            return fileSegments;
+            //return array list
+        } catch (Exception e) {
+            return null;
         }
-        return fileSegments;
-        //return array list
+        
     }
 }
