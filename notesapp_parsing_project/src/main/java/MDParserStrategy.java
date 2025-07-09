@@ -21,8 +21,15 @@ public class MDParserStrategy implements ParserStrategy {
 
     @Override
     public ArrayList<TextEntry> parse(String filePath) throws IOException {
-        String wholeFileString = Files.readString(Paths.get(filePath));
-        List<String> fileSegments = this.segmentStrategy.segment(wholeFileString);
+
+
+        BufferedReader reader = Files.newBufferedReader(Paths.get(filePath));
+        try {
+            List<String> fileSegments = this.segmentStrategy.performSegmentation(reader);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        reader.close();
 
         ArrayList<TextEntry> textEntries = new ArrayList<>();
 

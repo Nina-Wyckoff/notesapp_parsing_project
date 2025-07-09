@@ -1,5 +1,6 @@
 package notesapp_parsing_project;
 
+import java.io.BufferedReader;
 import java.util.ArrayList;
 
 //must take in string and return a list of strings, as of now 
@@ -7,5 +8,5 @@ import java.util.ArrayList;
 
 public interface SegmentStrategy {
 
-    public ArrayList<String> performSegmentation(String fullText);
+    public ArrayList<String> performSegmentation(BufferedReader reader);
 }
