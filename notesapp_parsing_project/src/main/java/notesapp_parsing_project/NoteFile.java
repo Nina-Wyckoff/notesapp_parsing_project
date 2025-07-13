@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 package notesapp_parsing_project;
 
@@ -19,10 +20,11 @@ public class NoteFile {
 
     private String title;
     private int numberOfEntries;
-    private HashMap<String,ArrayList> tagToEntryMap;
+    private Map<String,ArrayList<String>> tagToEntryMap;
 
 
     public Notefile(ArrayList<TextEntry> textEntries,String title) {
+        
         this.title = title;
         this.numberOfEntries = textEntries.size();
         this.tagToEntryMap = processArray(textEntries);
@@ -30,16 +32,31 @@ public class NoteFile {
 
     }
 
-    private HashMap<String,ArrayList> processArray(ArrayList<TextEntry> textEntries) {
-    /*
-    * processArray() creates a hashmap of lists in which the key is a tag and the list is of content strings that have that key
-    * there is a key in the hashmap that is null for untagged items
-    *
-    *textEntry.getTag()
-    */
+    private Map<String,ArrayList<String>> processArray(ArrayList<TextEntry> textEntries) {
+        
+        Map<String,ArrayList> tagToEntryMap = new HashMap<>();
+        for (TextEntry entry: textEntries) {
+            thisTag = entry.getTag();
+
+            if (!tagToEntryMap.containsKey(thisTag)) {
+                tagToEntryMap.put(thisTag, new ArrayList<String>())                
+            } 
+            ArrayList<String> listReference = tagToEntryMap.get(thisTag);
+            listReference.add(entry.getContent());
+                
+            }
+        }
+    
+        /*
+        * processArray() creates a hashmap of lists in which the key is a tag and the list is of content strings that have that key
+        * there is a key in the hashmap that is null for untagged items
+        *
+        *textEntry.getTag()
+        */
+
     }
 
-    private int setNumberOfEntries() {
+    private int updateNumberOfEntries() {
         //this method updates the number of entries total if size of textEntries input is no longer accurate
         //this  returned integer is useful for randomization
         //the method works by calling get size on each arrayList of content and 
@@ -47,6 +64,7 @@ public class NoteFile {
     }
 
     public String getTitle() {
+        
         return title;
     }
 
