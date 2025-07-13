@@ -9,6 +9,7 @@ import notesapp_parsing_project.SegmentStrategy;
 //each line is expected ot be a new item
 //blank lines are seen as inconsequential as segmenting goes
 //an example .md file this is meant for is Names I Like.md
+//i need a contructor for this obv
 
 public class SingleLineSegmentStrategy implements SegmentStrategy{
 
