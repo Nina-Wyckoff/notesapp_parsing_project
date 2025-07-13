@@ -27,7 +27,6 @@ public class NoteFile {
         this.title = title;
         this.numberOfEntries = textEntries.size();
         this.tagToEntryMap = processArray(textEntries);
-        
 
     }
 
@@ -41,8 +40,7 @@ public class NoteFile {
             ArrayList<String> listReference = tagToEntryMap.get(thisTag);
             listReference.add(entry.getContent());
                 
-            }
-
+            
             return tagToEntryMap;
         }
 
@@ -58,14 +56,13 @@ public class NoteFile {
         return counter;   
     }
 
-    public String getTitle() {
-        
+    public String getTitle() {        
         return title;
     }
 
     public String getAllTags() {
-        //generates a string representation of a list of all tags, 
-        //the keys from the hash map
+        String tagsString = this.tagToEntryMap.keySet().toString();
+        return tagsString;
     }
 
     public void combineTags(String tagKept, String tagAbsorbed) {
@@ -83,6 +80,7 @@ public class NoteFile {
     public String getRandomEntries(int quantity, String tag) {
         //if no second argument then no tag filter is used
     }
+
 
     public void saveToJSON(String path) {
         //saves note file to json format, if no argument then keeps in current directory
