@@ -23,8 +23,7 @@ public class NoteFile {
     private Map<String,ArrayList<String>> tagToEntryMap;
 
 
-    public Notefile(ArrayList<TextEntry> textEntries,String title) {
-        
+    public Notefile(ArrayList<TextEntry> textEntries,String title) {        
         this.title = title;
         this.numberOfEntries = textEntries.size();
         this.tagToEntryMap = processArray(textEntries);
@@ -32,12 +31,10 @@ public class NoteFile {
 
     }
 
-    private Map<String,ArrayList<String>> processArray(ArrayList<TextEntry> textEntries) {
-        
+    private Map<String,ArrayList<String>> processArray(ArrayList<TextEntry> textEntries) {        
         Map<String,ArrayList> tagToEntryMap = new HashMap<>();
         for (TextEntry entry: textEntries) {
-            thisTag = entry.getTag();
-
+            String thisTag = entry.getTag();
             if (!tagToEntryMap.containsKey(thisTag)) {
                 tagToEntryMap.put(thisTag, new ArrayList<String>())                
             } 
@@ -45,22 +42,20 @@ public class NoteFile {
             listReference.add(entry.getContent());
                 
             }
+
+            return tagToEntryMap;
         }
-    
-        /*
-        * processArray() creates a hashmap of lists in which the key is a tag and the list is of content strings that have that key
-        * there is a key in the hashmap that is null for untagged items
-        *
-        *textEntry.getTag()
-        */
 
     }
 
-    private int updateNumberOfEntries() {
-        //this method updates the number of entries total if size of textEntries input is no longer accurate
-        //this  returned integer is useful for randomization
-        //the method works by calling get size on each arrayList of content and 
-        //calculating the total
+    private int updateNumberOfEntries() {        
+        int counter = 0;
+        for (ArrayList<String> array : this.tagToEntryMap.values()){
+            for (String contentString : array) {
+                counter++;
+            }
+        }
+        return counter;   
     }
 
     public String getTitle() {
